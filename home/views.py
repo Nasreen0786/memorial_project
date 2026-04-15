@@ -20,8 +20,7 @@ def contact(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         desc = request.POST.get('description')
-
-        if name and email and desc:   # 🔥 important validation
+        if name and email and desc:
             Contact.objects.create(
                 name=name,
                 email=email,
@@ -29,5 +28,4 @@ def contact(request):
             )
         else:
             return HttpResponse("All fields are required")
-
     return render(request, 'contact.html')
