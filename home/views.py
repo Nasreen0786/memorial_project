@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponse
+from home.models import Contact
 
 # Create your views here.
 def index(request):
@@ -15,4 +16,18 @@ def checkout(request):
     return render(request, 'checkout.html')
 
 def contact(request):
+    if request.method == "POST":
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        desc = request.POST.get('description')
+
+        if name and email and desc:   # 🔥 important validation
+            Contact.objects.create(
+                name=name,
+                email=email,
+                description=desc
+            )
+        else:
+            return HttpResponse("All fields are required")
+
     return render(request, 'contact.html')
