@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+
+<!-- Page Header -->
+
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">My Wishlist</h1>
+</div>
+
+<!-- Wishlist Start -->
+
+<div class="container-fluid py-5">
+    <div class="container py-5">
+
+    <h2 class="mb-4">Your Wishlist</h2>
+
+    {% if wishlist_items %}
+    <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+            <thead class="bg-light">
+                <tr>
+                    <th>Product</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Add to Cart</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for item in wishlist_items %}
+                <tr>
+                    <td>
+                        <img src="{{ item.product.image.url }}" 
+                             class="img-fluid rounded" 
+                             style="width: 80px; height: 80px;">
+                    </td>
+                    <td>{{ item.product.name }}</td>
+                    <td>₹{{ item.product.price }}</td>
+
+                    <td>
+                        <a href="{% url 'add_to_cart' item.product.id %}" 
+                           class="btn btn-sm btn-success">
+                           Add to Cart
+                        </a>
+                    </td>
+
+                    <td>
+                        <a href="{% url 'remove_from_wishlist' item.id %}" 
+                           class="btn btn-sm btn-danger">
+                           Remove
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="text-center">
+        <h5>Your wishlist is empty</h5>
+        <a href="/" class="btn btn-primary mt-3">Browse Products</a>
+    </div>
+    {% endif %}
+
+</div>
+
+</div>
+<!-- Wishlist End -->
+
+{% endblock body %}

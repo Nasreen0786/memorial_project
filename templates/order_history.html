@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+
+<!-- Page Header -->
+
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">My Orders</h1>
+</div>
+
+<!-- Order History Start -->
+
+<div class="container-fluid py-5">
+    <div class="container py-5">
+
+    <h2 class="mb-4">Order History</h2>
+
+    {% if orders %}
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead class="bg-light">
+                <tr>
+                    <th>Order ID</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for order in orders %}
+                <tr>
+                    <td>#{{ order.id }}</td>
+                    <td>{{ order.created_at }}</td>
+                    <td>
+                        {% if order.status == "Pending" %}
+                            <span class="badge bg-warning text-dark">Pending</span>
+                        {% elif order.status == "Shipped" %}
+                            <span class="badge bg-info">Shipped</span>
+                        {% elif order.status == "Delivered" %}
+                            <span class="badge bg-success">Delivered</span>
+                        {% else %}
+                            <span class="badge bg-secondary">{{ order.status }}</span>
+                        {% endif %}
+                    </td>
+                    <td>₹{{ order.total_amount }}</td>
+                    <td>
+                        <a href="{% url 'order_detail' order.id %}" class="btn btn-sm btn-primary">
+                            View
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+        <div class="text-center">
+            <h5>No orders found</h5>
+            <a href="/" class="btn btn-primary mt-3">Shop Now</a>
+        </div>
+    {% endif %}
+
+</div>
+
+
+</div>
+<!-- Order History End -->
+
+{% endblock body %}

@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+
+<!-- Page Header Start -->
+
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">FAQ</h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active text-white">FAQ</li>
+    </ol>
+</div>
+<!-- Page Header End -->
+
+<!-- FAQ Start -->
+
+<div class="container-fluid py-5">
+    <div class="container py-5">
+
+    <h2 class="mb-4">Frequently Asked Questions</h2>
+
+    <div class="accordion" id="faqAccordion">
+
+        <!-- Q1 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                    How can I place an order?
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    You can place an order by browsing products, adding them to your cart, and proceeding to checkout.
+                </div>
+            </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                    What payment methods are available?
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    We accept payments via Credit/Debit Cards, UPI, Net Banking, and Cash on Delivery (COD).
+                </div>
+            </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                    How long does delivery take?
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Delivery usually takes 2-5 business days depending on your location.
+                </div>
+            </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                    Can I cancel or modify my order?
+                </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Yes, you can cancel or modify your order before it is shipped.
+                </div>
+            </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+                    What is your return policy?
+                </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    You can request a return within 7 days of delivery for damaged or incorrect items.
+                </div>
+            </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSix">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix">
+                    Do you offer Cash on Delivery?
+                </button>
+            </h2>
+            <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Yes, Cash on Delivery (COD) is available for selected locations.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+<!-- FAQ End -->
+
+{% endblock body %}

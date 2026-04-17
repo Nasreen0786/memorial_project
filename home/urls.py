@@ -9,4 +9,13 @@ urlpatterns = [
     path('checkout', views.checkout, name='checkout'),
     path('contact', views.contact, name='contact'),
     path('privacy_policy', views.privacy_policy, name='privacy_policy'),
+    path('terms_of_use', views.terms_of_use, name='terms_of_use'),
+    path('sales_refund', views.sales_refund, name='sales_refund'),
+    path('faq', views.faq, name='faq'),
+    path('international_order', views.international_order, name='international_order'),
+    path('order_history', views.order_history, name='order_history'),
+    path('wishlist', views.wishlist , name='wishlist ,'),
+    path('return_policy', views.return_policy, name='return_policy'),
+    path('my_account', views.my_account, name='my_account'),
+    path('about_us', views.about_us, name='about_us'),
 ]
