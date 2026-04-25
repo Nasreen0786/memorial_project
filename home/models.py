@@ -9,7 +9,7 @@ class Contact(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=100)
     price = models.IntegerField()
-    image = models.ImageField(upload_to='products/')
+    image = models.ImageField(upload_to='img/')
     description = models.TextField()
 
     def __str__(self):
