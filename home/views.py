@@ -5,7 +5,8 @@ from django.core.paginator import Paginator
 
 def index(request):
     # return HttpResponse("Here is teh first page")
-    return render(request, 'index.html')
+    products = Product.objects.all()
+    return render(request, 'index.html', {'products': products})
 
 def shop(request):
     products = Product.objects.all()
