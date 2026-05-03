@@ -13,12 +13,14 @@ def shop(request):
     categories = Category.objects.all()
     paginator = Paginator(products, 6)
     page_number = request.GET.get('page')
+    featured_products = Product.objects.filter(is_featured=True)[:3]
     
     products = paginator.get_page(page_number)
     # return render(request, 'shop.html', {'products': products, 'categories': Category})
     return render(request, 'shop.html', {
         'products': products,
-        'categories': categories
+        'categories': categories,
+        'featured_products': featured_products
     })
 
 def cart(request):

@@ -18,6 +18,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='img/')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
     description = models.TextField()
+    is_featured = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
