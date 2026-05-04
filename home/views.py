@@ -8,15 +8,38 @@ def index(request):
     products = Product.objects.all()
     return render(request, 'index.html', {'products': products})
 
+from django.core.paginator import Paginator
+from django.shortcuts import render
+from .models import Product, Category
+
+
+from django.shortcuts import render
+from django.core.paginator import Paginator
+from .models import Product, Category
+
+
 def shop(request):
-    products = Product.objects.all()
+
     categories = Category.objects.all()
-    paginator = Paginator(products, 6)
-    page_number = request.GET.get('page')
+
+    products = Product.objects.all()
+
+    # Category Filter
+    category_id = request.GET.get('category')
+
+    if category_id:
+        products = products.filter(category_id=category_id)
+
+    # Featured Products
     featured_products = Product.objects.filter(is_featured=True)[:3]
-    
+
+    # Pagination AFTER filtering
+    paginator = Paginator(products, 6)
+
+    page_number = request.GET.get('page')
+
     products = paginator.get_page(page_number)
-    # return render(request, 'shop.html', {'products': products, 'categories': Category})
+
     return render(request, 'shop.html', {
         'products': products,
         'categories': categories,
